@@ -1,11 +1,8 @@
-# npm version
+# Badges & Coverage
 
-[![npm version](https://img.shields.io/npm/v/ts-utility-stash.svg)](https://www.npmjs.com/package/ts-utility-stash)
+- Build: ![build status](https://github.com/thiraphat-ps-dev/ts-utility-stash/actions/workflows/ci.yml/badge.svg)
+- Coverage: ![coverage](https://img.shields.io/badge/coverage-unknown-lightgrey)
+- NPM: ![npm version](https://img.shields.io/npm/v/@thiraphat-ps-dev/ts-utility-stash)
+- License: ![license](https://img.shields.io/npm/l/@thiraphat-ps-dev/ts-utility-stash)
 
-# npm downloads
-
-[![npm downloads](https://img.shields.io/npm/dm/ts-utility-stash.svg)](https://www.npmjs.com/package/ts-utility-stash)
-
-# codecov (example, enable if you use codecov)
-
-[![codecov](https://codecov.io/gh/your-username/ts-utility-stash/branch/main/graph/badge.svg)](https://codecov.io/gh/your-username/ts-utility-stash)
+> หากต้องการ badge coverage อัตโนมัติ แนะนำเชื่อมต่อกับ [Codecov](https://about.codecov.io/) หรือ [Coveralls](https://coveralls.io/) และเพิ่ม badge ที่ได้ใน README.md

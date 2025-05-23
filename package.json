@@ -18,14 +18,15 @@
     "helpers",
     "library"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "Thiraphat P. <your.email@example.com>",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
     "prepare": "npm run build && husky install",
     "lint": "eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*.ts'",
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "jest --ci --coverage"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^12.1.2",
@@ -45,9 +46,9 @@
     "tslib": "^2.8.1",
     "typescript": "^5.8.3"
   },
-  "homepage": "https://github.com/your-username/ts-utility-stash#readme",
+  "homepage": "https://github.com/thiraphat-ps-dev/ts-utility-stash#readme",
   "bugs": {
-    "url": "https://github.com/your-username/ts-utility-stash/issues"
+    "url": "https://github.com/thiraphat-ps-dev/ts-utility-stash/issues"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,js,jsx}": [
@@ -56,6 +57,7 @@
     ]
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
   }
 }

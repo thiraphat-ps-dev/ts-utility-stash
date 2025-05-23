@@ -1,35 +1,33 @@
-# Contributing to ts-utility-stash
+# Contribution Guide
 
-Thank you for considering contributing! Please follow these guidelines:
+ขอบคุณที่สนใจร่วมพัฒนา ts-utility-stash!
 
-## Getting Started
+## วิธีการ contribute
 
-- Clone the repo and run `npm install`
-- Run `npm run build` to build the library
-- Run `npm test` to run all tests
+- Fork และ clone repository
+- สร้าง branch ใหม่จาก main
+- เพิ่มหรือแก้ไข utility ใน `src/[module]/`
+- เพิ่ม/ปรับ unit test ใน `src/[module]/index.test.ts`
+- รัน `npm run lint` และ `npm run test`
+- Commit ด้วยข้อความที่สื่อความหมาย (เช่น feat, fix, chore)
+- Push branch และสร้าง Pull Request
 
-## Code Style
+## Style & Test
 
-- Use TypeScript and follow the existing code style
-- Run `npm run lint` and `npm run format` before commit
+- ใช้ TypeScript, รองรับ strict mode
+- รัน lint (`npm run lint`) และ format (`npm run format`) ก่อน commit
+- เพิ่ม unit test ทุกครั้งที่เพิ่ม utility ใหม่
+- ตรวจสอบ coverage ด้วย `npm run test:ci`
 
-## Commit & PR
+## PR Process
 
-- Use clear commit messages (conventional commits preferred)
-- All code must pass lint, test, and pre-commit hook (Husky)
-- Open a pull request with a clear description
+- อธิบาย feature/fix ที่เพิ่มใน PR
+- รอ review และแก้ไขตาม feedback
 
-## Adding Utilities
+## เพิ่ม utility ใหม่
 
-- Add new utilities in the appropriate folder under `src/`
-- Add unit tests in the corresponding `index.test.ts`
-- Update README.md with usage examples if needed
+- สร้างไฟล์ในหมวดหมู่ที่เหมาะสม (array, object, string, ...)
+- เพิ่ม test case ครอบคลุม edge case
+- อัปเดต README.md ถ้ามี API ใหม่
 
-## Build & Publish
-
-- Build with `npm run build` (uses Rollup for ESM/CJS/types)
-- Only files in `dist/` will be published to npm
-
-## Questions?
-
-Open an issue or discussion on GitHub!
+ขอบคุณที่ร่วมพัฒนา!
