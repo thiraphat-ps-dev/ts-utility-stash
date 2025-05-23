@@ -1,5 +1,5 @@
 {
-  "name": "ts-utility-stash",
+  "name": "@thiraphat-ps-dev/ts-utility-stash",
   "version": "0.1.0",
   "description": "A collection of helpful TypeScript utility functions and helpers.",
   "main": "dist/index.cjs.js",
@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/ts-utility-stash.git"
+    "url": "https://github.com/thiraphat-ps-dev/ts-utility-stash.git"
   },
   "keywords": [
     "typescript",
@@ -54,5 +54,8 @@
       "npm run lint --if-present",
       "npm run test --if-present"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
