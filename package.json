@@ -30,7 +30,9 @@
     "@typescript-eslint/parser": "^8.32.1",
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
+    "lint-staged": "^16.0.0",
     "prettier": "^3.5.3",
     "rollup": "^4.41.0",
     "rollup-plugin-dts": "^6.2.1",
@@ -42,5 +44,11 @@
   "homepage": "https://github.com/your-username/ts-utility-stash#readme",
   "bugs": {
     "url": "https://github.com/your-username/ts-utility-stash/issues"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js,jsx}": [
+      "npm run lint --if-present",
+      "npm run test --if-present"
+    ]
   }
 }
