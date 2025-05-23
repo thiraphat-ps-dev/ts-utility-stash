@@ -20,16 +20,15 @@ npm install ts-utility-stash
 yarn add ts-utility-stash
 ```
 
-## Usage
-
-Import the utilities you need:
+## Quick Start Example
 
 ```typescript
-import { isEmpty, deepClone, uniq, chunk, capitalize, debounce } from 'ts-utility-stash';
+import { uniq, chunk, capitalize, formatDecimal } from 'ts-utility-stash';
 
-console.log(isEmpty([])); // true
 console.log(uniq([1, 2, 2, 3])); // [1, 2, 3]
-console.log(capitalize('hello')); // Hello
+console.log(chunk([1, 2, 3, 4], 2)); // [[1,2],[3,4]]
+console.log(capitalize('hello world')); // Hello world
+console.log(formatDecimal(12345.678)); // '12,345.68'
 ```
 
 ## Utility Categories & Examples
@@ -85,7 +84,16 @@ isNil(undefined); // true
 
 ```typescript
 import { debounce, throttle, once } from 'ts-utility-stash';
-// See API for usage patterns
+const log = () => console.log('called');
+const debounced = debounce(log, 100);
+debounced();
+debounced(); // log() will be called only once after 100ms
+const throttled = throttle(log, 100);
+throttled();
+throttled(); // log() will be called at most once per 100ms
+const onceFn = once(log);
+onceFn();
+onceFn(); // log() will be called only once
 ```
 
 ### Other Utilities
@@ -116,6 +124,39 @@ maskString('123456789012', 2, 2); // '12********12'
 formatCreditCard('1234567812345678'); // '1234-5678-1234-5678'
 formatPhoneNumber('0812345678'); // '08-123-45678'
 ```
+
+## Performance & Bundle Size
+
+- **Tree-shakable:** All exports are named, so bundlers (webpack, Rollup, etc.) can remove unused code automatically.
+- **No dependencies:** The library is extremely lightweight.
+- **Submodule imports:** You can import only what you need for optimal bundle size:
+
+```typescript
+import { uniq } from 'ts-utility-stash/array';
+import { capitalize } from 'ts-utility-stash/string';
+```
+
+- **Check bundle size:**
+
+  - Use [Bundlephobia](https://bundlephobia.com/package/ts-utility-stash) to see the published size.
+  - Or add [size-limit](https://github.com/ai/size-limit):
+    ```sh
+    npm install --save-dev size-limit
+    npx size-limit
+    ```
+  - Add this to your `package.json` for automated checks:
+    ```json
+    "size-limit": [
+      {
+        "path": "dist/index.js",
+        "limit": "5 KB"
+      }
+    ]
+    ```
+
+- **Performance:**
+  - All utilities are written for speed and minimal memory usage.
+  - For custom benchmarks, see [benchmark.js](https://www.npmjs.com/package/benchmark) or [tinybench](https://github.com/tinylibs/tinybench).
 
 ## API Reference
 
