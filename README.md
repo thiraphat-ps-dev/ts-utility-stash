@@ -26,6 +26,10 @@ import {
   base,
   format,
   other,
+  date,
+  math,
+  async,
+  validation,
 } from '@thiraphat-ps-dev/ts-utility-stash';
 
 // Array utilities
@@ -51,6 +55,22 @@ const pretty = format.prettyBytes(1024);
 
 // Other utilities
 const noop = other.noop();
+
+// --- New Utilities ---
+// Date utilities
+const todayStr = date.formatDate(new Date());
+const isToday = date.isToday(new Date());
+
+// Math utilities
+const avg = math.average([1, 2, 3]);
+
+// Async utilities
+await async.sleep(100);
+await async.retry(async () => fetch('https://example.com'));
+
+// Validation utilities
+const validEmail = validation.isEmail('test@example.com');
+const validUrl = validation.isURL('https://example.com');
 ```
 
 ## Documentation
