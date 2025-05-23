@@ -23,7 +23,7 @@
   "scripts": {
     "build": "rollup -c",
     "prepare": "npm run build && husky install",
-    "lint": "eslint 'src/**/*.ts'",
+    "lint": "eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*.ts'",
     "test": "jest"
   },
