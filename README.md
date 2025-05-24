@@ -2,11 +2,9 @@
 
 [![npm version](https://img.shields.io/npm/v/@thiraphat-ps-dev/ts-utility-stash)](https://www.npmjs.com/package/@thiraphat-ps-dev/ts-utility-stash)
 [![build status](https://github.com/thiraphat-ps-dev/ts-utility-stash/actions/workflows/ci.yml/badge.svg)](https://github.com/thiraphat-ps-dev/ts-utility-stash/actions)
-[![code coverage](https://img.shields.io/badge/coverage-unknown-lightgrey)](./BADGES.md)
 [![license](https://img.shields.io/npm/l/@thiraphat-ps-dev/ts-utility-stash)](./LICENSE)
-[![downloads](https://img.shields.io/npm/dm/@thiraphat-ps-dev/ts-utility-stash)](https://www.npmjs.com/package/@thiraphat-ps-dev/ts-utility-stash)
 
-A collection of helpful TypeScript utility functions and helpers.
+A modern TypeScript utility library — now focused on a single robust helper: `isEmpty`.
 
 ## Installation
 
@@ -17,66 +15,28 @@ npm install @thiraphat-ps-dev/ts-utility-stash
 ## Usage Example
 
 ```ts
-import {
-  array,
-  object,
-  string,
-  type,
-  function as fn,
-  base,
-  format,
-  other,
-  date,
-  math,
-  async,
-  validation,
-} from '@thiraphat-ps-dev/ts-utility-stash';
+import { isEmpty } from '@thiraphat-ps-dev/ts-utility-stash';
 
-// Array utilities
-const unique = array.unique([1, 2, 2, 3]);
-
-// Object utilities
-const keys = object.keys({ a: 1, b: 2 });
-
-// String utilities
-const capital = string.capitalize('hello');
-
-// Type utilities
-const isString = type.isString('abc');
-
-// Function utilities
-const onceFn = fn.once(() => console.log('run once'));
-
-// Base utilities
-const clamp = base.clamp(10, 0, 5);
-
-// Format utilities
-const pretty = format.prettyBytes(1024);
-
-// Other utilities
-const noop = other.noop();
-
-// --- New Utilities ---
-// Date utilities
-const todayStr = date.formatDate(new Date());
-const isToday = date.isToday(new Date());
-
-// Math utilities
-const avg = math.average([1, 2, 3]);
-
-// Async utilities
-await async.sleep(100);
-await async.retry(async () => fetch('https://example.com'));
-
-// Validation utilities
-const validEmail = validation.isEmail('test@example.com');
-const validUrl = validation.isURL('https://example.com');
+isEmpty([]); // true
+isEmpty({}); // true
+isEmpty(''); // true
+isEmpty(new Map()); // true
+isEmpty([1, 2]); // false
+isEmpty({ a: 1 }); // false
+isEmpty('hello'); // false
+isEmpty(new Set([1])); // false
+isEmpty(new ArrayBuffer(0)); // true
+isEmpty(new Uint8Array([1])); // false
+isEmpty(() => {}); // false
+isEmpty(0); // false
 ```
 
-## Documentation
+## API
 
-- [Badges & Coverage](./BADGES.md)
-- [Contribution Guide](./CONTRIBUTING.md)
+### `isEmpty(value: unknown): boolean`
+
+- Returns `true` if the value is considered empty (array, object, string, map, set, null, undefined, ArrayBuffer, TypedArray, DataView)
+- Returns `false` for non-empty values and all primitives (number, boolean, symbol, function, etc.)
 
 ## License
 
