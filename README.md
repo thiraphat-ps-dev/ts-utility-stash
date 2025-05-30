@@ -17,19 +17,51 @@ npm install @thiraphat-ps-dev/ts-utility-stash
 ```ts
 import { isEmpty, formatNumber } from '@thiraphat-ps-dev/ts-utility-stash';
 
-// isEmpty
+// Basic usage examples
 isEmpty([]); // true
 isEmpty({}); // true
 isEmpty(''); // true
 isEmpty([1, 2]); // false
 isEmpty('hello'); // false
 
-// formatNumber
 formatNumber(1234567.89); // '1,234,567.89'
 formatNumber(1234.5, { decimals: 3 }); // '1,234.500'
 formatNumber(1234567.89, { locale: 'de-DE' }); // '1.234.567,89'
 formatNumber(NaN); // 'NaN'
 formatNumber(Infinity); // 'Infinity'
+```
+
+### Array Utilities
+
+The library provides utilities for working with arrays:
+
+```ts
+import { isEmpty } from '@thiraphat-ps-dev/ts-utility-stash';
+
+// Check if an array is empty
+isEmpty([]); // true
+isEmpty(new Array()); // true
+isEmpty([1, 2, 3]); // false
+
+// Works with array-like objects
+const arrayLike = { length: 0 };
+isEmpty(arrayLike); // true (empty object, not checking array-like nature)
+
+// Type safety - works with typed arrays too
+isEmpty(new Uint8Array(0)); // true
+isEmpty(new Uint8Array([1, 2, 3])); // false
+
+// Comparison with other array checks
+Array.isArray([]); // true - confirms it's an array
+[].length === 0; // true - vanilla JS empty check
+isEmpty([]); // true - our utility combining type + empty check
+
+// Advanced: works with array subclasses
+class MyArray extends Array {}
+isEmpty(new MyArray()); // true
+const myFilledArray = new MyArray();
+myFilledArray.push(1, 2);
+isEmpty(myFilledArray); // false
 ```
 
 ## API
